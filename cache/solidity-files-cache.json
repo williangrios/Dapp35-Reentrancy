@@ -1,0 +1,111 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\ITAUTEC\\Desktop\\REPOS\\EATTHEBLOCKS\\PROJETOS\\reentrancy\\contracts\\EthBankExploit.sol": {
+      "lastModificationDate": 1678465918365,
+      "contentHash": "597dde9824e2ef0837d7e6384dc1a1da",
+      "sourceName": "contracts/EthBankExploit.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8"
+      ],
+      "artifacts": [
+        "EthBankExploit",
+        "IEthBank"
+      ]
+    },
+    "C:\\Users\\ITAUTEC\\Desktop\\REPOS\\EATTHEBLOCKS\\PROJETOS\\reentrancy\\contracts\\EthFailedBank.sol": {
+      "lastModificationDate": 1678465758389,
+      "contentHash": "15b5459fd8714839f212792ade67839c",
+      "sourceName": "contracts/EthFailedBank.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "EthFailedBank"
+      ]
+    },
+    "C:\\Users\\ITAUTEC\\Desktop\\REPOS\\EATTHEBLOCKS\\PROJETOS\\reentrancy\\contracts\\EthSafeBank.sol": {
+      "lastModificationDate": 1678465758388,
+      "contentHash": "111aca27b0cb4dbc0de51915b094926f",
+      "sourceName": "contracts/EthSafeBank.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "EthSafeBank"
+      ]
+    }
+  }
+}
