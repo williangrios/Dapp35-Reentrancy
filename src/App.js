@@ -33,8 +33,8 @@ function App() {
   const [failedBank, setFailedBank] = useState();
   const [safeBank, setSafeBank] = useState();
   const [bankExploit, setBankExploit] = useState();
-  const [balanceFailedBank, setBalanceFailedBank] = useState(0)
-  const [balanceSafeBank, setBalanceSafeBank] = useState(0)
+  const [balanceFailedBank, setBalanceFailedBank] = useState()
+  const [balanceSafeBank, setBalanceSafeBank] = useState()
 
   const failedBankAddress = "0x1675B7D8FAaa09CB3676037aBcE39d030fa5EacE";
   const safeBankAddress = "0x71727B1BA16BbCd51f21dd959acd20ee218De8A5";
@@ -46,11 +46,9 @@ function App() {
         toastMessage('Change to goerli testnet.')
         return;
       }
-
-      const provWeb3 =  new ethers.providers.Web3Provider(window.ethereum);
+      const provWeb3 =  getSigner();
       let userAcc = await provWeb3.send('eth_requestAccounts', []);
       setUser({account: userAcc[0], connected: true});
-
     } catch (error) {
       if (error.message === 'provider is undefined' || 'window.ethereum is undefined'){
         toastMessage('No provider detected.')
@@ -80,32 +78,32 @@ function App() {
       setUser({account: '', connected: false});
       setSigner(null);
     } catch (error) {
-      toastMessage(error.reason)
+      toastMessage(error.reason);
     }
   }
 
   function toastMessage(text) {
-    toast.info(text)  ;
+    toast.info(text);
   }
 
   async function getSigner(){
     if (!signer){
       const provWeb3 =  new ethers.providers.Web3Provider(window.ethereum);
-      const sig = provWeb3.getSigner(user.account)
-      setSigner(sig)
+      const sig = provWeb3.getSigner(user.account);
+      setSigner(sig);
     }else{
-      return (signer)
+      return (signer);
     }
   }
 
   async function returnContractFailedBank(){
     if (!failedBank){
-      const sign = await getSigner()
+      const sign = await getSigner();
       console.log(provider);
-      const contractInstance = new ethers.Contract(failedBankAddress, FailedBank.abi, provider )
-      return contractInstance
+      const contractInstance = new ethers.Contract(failedBankAddress, FailedBank.abi, provider );
+      return contractInstance;
     }else{
-      return failedBank
+      return failedBank;
     }
   }
 
@@ -132,16 +130,26 @@ function App() {
     try {
       setLoading(true) 
       toastMessage("Balances loading!")
-      const amountSafeBank = await provider.getBalance(safeBankAddress);  
-      const amountFailedBank = await provider.getBalance(failedBankAddress);  
-      setBalanceFailedBank( parseInt(amountFailedBank))
-      setBalanceSafeBank( parseInt( amountSafeBank))
+      setBalanceFailedBank( parseInt(await provider.getBalance(failedBankAddress)))
+      setBalanceSafeBank( parseInt( await provider.getBalance(safeBankAddress)))
       toastMessage("Balances loaded!")
     } catch (error) {
       toastMessage(error.reason)
     }finally{
       setLoading(false)
     }
+  }
+
+  async function handleDeposit(bank){
+
+  }
+
+  async function handleWithdraw(bank){
+    
+  }
+
+  async function handleAttack(bank){
+
   }
 
   return (
@@ -152,20 +160,28 @@ function App() {
       <WRContent>
         <h1>Connect to Goerli testnet</h1>
         { !user.connected ?<>
-            <Button variant="btn btn-primary" onClick={handleConnectWallet}>
+            <Button variant="btn btn-primary" style={{width: '300px'}} onClick={handleConnectWallet}>
               <img src={meta} alt="metamask" width="30px" height="30px"/>Connect Metamask
             </Button></>
           : <>
             <label>Welcome {user.account}</label>
-            <button className="btn btn-primary commands" onClick={handleDisconnect}>Disconnect</button>
+            <button className="btn btn-primary commands" style={{width: '300px'}} onClick={handleDisconnect}>Disconnect</button>
           </>
         }
-        <h2>Balances</h2>
+        <h2>Bank Balances</h2>
         <p>Failed bank: {loading? 'Please wait': balanceFailedBank}</p>
         <p>Safe bank: {loading? 'Please wait': balanceSafeBank}</p>
+        <h2>Your bank balance</h2>
+        <button className='btn btn-primary mb-5' style={{width: '300px'}}>Check my balance</button>
         <h2>Deposit</h2>
+        <button className='btn btn-primary mb-2' style={{width: '300px'}}>Deposit 100 wei at FAILED Bank</button>
+        <button className='btn btn-primary mb-5'style={{width: '300px'}}>Deposit 100 wei at SAFE Bank</button>
         <h2>Withdraw</h2>
+        <button className='btn btn-primary mb-2' style={{width: '300px'}}>Withdraw 100 wei at FAILED Bank</button>
+        <button className='btn btn-primary mb-5'style={{width: '300px'}}>Withdraw 100 wei at SAFE Bank</button>
         <h2>Attack</h2>
+        <button className='btn btn-primary mb-2'style={{width: '300px'}}>Attack FAILED Bank</button>
+        <button className='btn btn-primary mb-5'style={{width: '300px'}}>Try attack SAFE Bank</button>
       </WRContent>
       <WRTools react={true} hardhat={true} bootstrap={true} solidity={true} css={true} javascript={true} ethersjs={true} />
       <WRFooter />  
