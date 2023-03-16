@@ -16,7 +16,8 @@ async function main() {
   );
 
   const BankExploit = await hre.ethers.getContractFactory("EthBankExploit");
-  const bankExploit = await BankExploit.deploy(failedBank.address, safeBank.address);
+  const bankExploit = await BankExploit.deploy(failedBank.address);
+  //const bankExploit = await BankExploit.deploy(failedBank.address, safeBank.address);
   await bankExploit.deployed();
   console.log(
     `Bank Exploit Deployed to ${bankExploit.address}`

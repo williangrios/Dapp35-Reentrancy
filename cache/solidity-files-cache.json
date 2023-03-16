@@ -2,11 +2,11 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\ITAUTEC\\Desktop\\REPOS\\EATTHEBLOCKS\\PROJETOS\\reentrancy\\contracts\\EthBankExploit.sol": {
-      "lastModificationDate": 1678465918365,
-      "contentHash": "597dde9824e2ef0837d7e6384dc1a1da",
+      "lastModificationDate": 1678986773890,
+      "contentHash": "a0a858d96f91f2026c3ee15d286c837c",
       "sourceName": "contracts/EthBankExploit.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.7.1",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -30,7 +30,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8"
+        "0.7.1"
       ],
       "artifacts": [
         "EthBankExploit",
@@ -38,11 +38,11 @@
       ]
     },
     "C:\\Users\\ITAUTEC\\Desktop\\REPOS\\EATTHEBLOCKS\\PROJETOS\\reentrancy\\contracts\\EthFailedBank.sol": {
-      "lastModificationDate": 1678465758389,
-      "contentHash": "15b5459fd8714839f212792ade67839c",
+      "lastModificationDate": 1678986773889,
+      "contentHash": "9098a4274b93a61a56d08449b20e9e97",
       "sourceName": "contracts/EthFailedBank.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.7.1",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -66,18 +66,18 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.17"
+        "0.7.1"
       ],
       "artifacts": [
         "EthFailedBank"
       ]
     },
     "C:\\Users\\ITAUTEC\\Desktop\\REPOS\\EATTHEBLOCKS\\PROJETOS\\reentrancy\\contracts\\EthSafeBank.sol": {
-      "lastModificationDate": 1678465758388,
-      "contentHash": "111aca27b0cb4dbc0de51915b094926f",
+      "lastModificationDate": 1678986773890,
+      "contentHash": "16c69bdbbab7d6d29668bb5bed238f86",
       "sourceName": "contracts/EthSafeBank.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.7.1",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -101,7 +101,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.17"
+        "0.7.1"
       ],
       "artifacts": [
         "EthSafeBank"

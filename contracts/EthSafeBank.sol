@@ -1,22 +1,23 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity 0.7.1;
 
 contract EthSafeBank {
     mapping(address => uint) public balances;
 
     function deposit() external payable {
-        balances[msg.sender] += msg.value;
+        require(msg.value == 100);
+        balances[msg.sender] += 100;
     }
 
-    function withdraw() external payable {
-        (bool sent, ) = msg.sender.call{value: balances[msg.sender]}("");
+    function withdraw(uint amount) external payable {
+        require(balances[msg.sender] >= amount);
+        //sub before call
+        balances[msg.sender] -= amount;
+        (bool sent, ) = msg.sender.call{value: amount}("");
         require(sent, "failed to send ETH");
-
-        balances[msg.sender] = 0;
     }
 
-    function getBalance(address _addr) external view returns (uint){
+    function getUserBalance(address _addr) external view returns (uint) {
         return balances[_addr];
     }
-
 }
